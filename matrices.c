@@ -1,6 +1,17 @@
 #include <stdio.h>
 #define SIZE 5
 
+/*Printing matrix*/
+void printMatrix(int arr[][SIZE]){
+    int i,j;
+    for (i=0;i<SIZE;i++){
+        
+        for (j=0;j<SIZE;j++){
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 /*Adding matrices*/
 void addMatrices(int arr1[][SIZE],int arr2[][SIZE]){
@@ -11,7 +22,7 @@ void addMatrices(int arr1[][SIZE],int arr2[][SIZE]){
             sumArr[i][j] = arr1[i][j] + arr2[i][j];
         }
     }   
-    return printMatrix(sumArr);
+    printMatrix(sumArr);
 }
 
 /*Multiplying matrices*/
@@ -28,7 +39,7 @@ void multiplyMatrices(int arr1[][SIZE], int arr2[][SIZE]){
             }
         }
     }
-    return printMatrix(productArr);
+    printMatrix(productArr);
 }
 
 /*Transposing a maxtrix*/
@@ -41,18 +52,7 @@ void transposeMatrix(int arr[][SIZE]){
             newArr[i][j] = arr[j][i];
         }
     }
-    return printMatrix(newArr);
-}
-
-/*Printing matrix*/
-void printMatrix(int arr[][SIZE]){
-    int i,j;
-    for (i=0;i<SIZE;i++){
-        printf("\n");
-        for (j=0;j<SIZE;j++){
-            printf("%d",arr[i][j]);
-        }
-    }
+    printMatrix(newArr);
 }
 
 
@@ -72,4 +72,19 @@ int main(){
         {10,9,8,7,6},
         {5,4,3,2,1}
     };
+
+    //Matrices added
+    printf("Matrices Added Together: \n");
+    addMatrices(m1,m2);
+    printf("\n\n");
+
+    //Matrices multiplied
+    printf("Matrices Multiplied Together: \n");
+    multiplyMatrices(m1,m2);
+    printf("\n\n");
+
+    //Transpose Matrix m1, will turn to matrix m2
+    printf("Matrix 1 Transposed: \n");
+    transposeMatrix(m1);
+    printf("\n\n");
 }
